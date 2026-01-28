@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OWASP Top 10 – Security Demo Lab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background: #020617;
+  color: #e5e7eb;
+  font-family: monospace;
+  padding: 30px;
+}
+h1, h2 { color: #38bdf8; }
+.card {
+  background: #000;
+  border: 1px solid #22c55e;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+input, button {
+  padding: 8px;
+  margin-top: 10px;
+  background: #020617;
+  color: #22c55e;
+  border: 1px solid #22c55e;
+}
+button { cursor: pointer; }
+.log {
+  background: #000;
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #ef4444;
+}
+.safe {
+  border-left-color: #22c55e;
+}
+.warning {
+  color: #facc15;
+}
+</style>
+</head>
+<body>
+
+<h1>🧪 OWASP Top 10 – Simulation Lab</h1>
+
+<p class="warning">
+⚠️ This page contains <b>simulated security demonstrations</b> for educational purposes only.
+No real vulnerabilities exist.
+</p>
+
+<!-- SQL Injection Demo -->
+<div class="card">
+<h2>1️⃣ SQL Injection (Simulation)</h2>
+
+<label>Username:</label><br>
+<input id="sqlInput" placeholder="Enter username"><br>
+<button onclick="simulateSQLi()">Login</button>
+
+<div id="sqlResult"></div>
+</div>
+
+<!-- XSS Demo -->
+<div class="card">
+<h2>2️⃣ Cross-Site Scripting (XSS) – Safe Demo</h2>
+
+<label>Comment:</label><br>
+<input id="xssInput" placeholder="<script>alert(1)</script>"><br>
+<button onclick="simulateXSS()">Submit</button>
+
+<div id="xssResult"></div>
+</div>
+
+<!-- Brute Force Demo -->
+<div class="card">
+<h2>3️⃣ Brute Force Detection (SOC Simulation)</h2>
+
+<button onclick="bruteForce()">Simulate Failed Login</button>
+<div id="bfLogs"></div>
+</div>
+
+<script>
+/* SQL Injection Simulation */
+function simulateSQLi() {
+  const payload = document.getElementById("sqlInput").value;
+  let result = document.getElementById("sqlResult");
+
+  if (payload.includes("'") || payload.includes("--")) {
+    result.innerHTML = `
+      <div class="log">
+      🚨 SQL Injection attempt detected<br>
+      Payload blocked by prepared statements
+      </div>`;
+  } else {
+    result.innerHTML = `
+      <div class="log safe">
+      ✅ Login processed safely (simulated)
+      </div>`;
+  }
+}
+
+/* XSS Simulation */
+function simulateXSS() {
+  const payload = document.getElementById("xssInput").value;
+  let result = document.getElementById("xssResult");
+
+  result.textContent =
+    "🚫 Output encoded. Script execution prevented.\nInput received: " + payload;
+}
+
+/* Brute Force Simulation */
+let attempts = 0;
+function bruteForce() {
+  attempts++;
+  let logs = document.getElementById("bfLogs");
+
+  if (attempts >= 5) {
+    logs.innerHTML += `
+      <div class="log">
+      🚨 ALERT: Brute force detected<br>
+      Action: IP blocked | Incident escalated
+      </div>`;
+  } else {
+    logs.innerHTML += `
+      <div class="log">
+      Failed login attempt #${attempts}
+      </div>`;
+  }
+}
+</script>
+
+</body>
+</html>
