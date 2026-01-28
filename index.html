@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mallangouda Biradar | Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      background: radial-gradient(circle at top, #020617, #000000);
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(2,6,23,0.9), rgba(0,0,0,1));
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #38bdf8;
+      text-shadow: 0 0 25px rgba(56,189,248,0.6);
+      margin-bottom: 10px;
+    }
+    .typing {
+      font-size: 1.5rem; /* Made slightly larger for visibility */
+      color: #22c55e;
+      margin-top: 15px;
+      height: 30px; /* Increased height to prevent layout shift */
+      font-weight: bold;
+      min-width: 300px; /* Helps keep alignment steady */
+    }
+    /* Cursor effect */
+    .typing::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 30px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 12px;
+      font-size: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: rgba(2,6,23,0.9);
+      border: 1px solid rgba(56,189,248,0.15);
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 0 30px rgba(56,189,248,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, #22c55e, transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+    .card:hover::before {
+      transform: translateX(100%);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 50px rgba(34,197,94,0.25);
+      border-color: rgba(34,197,94,0.4);
+    }
+    .card h3 { 
+      color: #7dd3fc; 
+      margin-top: 0;
+    }
+    .card strong {
+      color: #22c55e;
+    }
+    .terminal {
+      background: #000;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #22c55e;
+      color: #22c55e;
+      box-shadow: 0 0 25px rgba(34,197,94,0.4);
+      font-size: 1rem;
+    }
+    .contact-bar {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        color: #94a3b8;
+    }
+    footer {
+      padding: 40px;
+      text-align: center;
+      background: #020617;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;
+    }
+    a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mallangouda Biradar</h1>
+  <div class="typing" id="typing"></div>
+  <div class="contact-bar">
+      <span>📍 Vijayapura, Karnataka</span>
+      <span>📧 biradarmallangouda27@gmail.com</span>
+      <span>📱 +91-7022578769</span>
+  </div>
+</header>
+
+<section>
+  <h2>About Me</h2>
+  <div class="terminal">
+    <span style="color: #38bdf8;">root@mallangouda:~$</span> whoami<br>
+    > Certified Ethical Hacker (CEH) Aspirant<br>
+    > 9.46 CGPA Computer Science Graduate<br>
+    > Passionate about Penetration Testing, Python Automation, and Network Security.<br>
+    > Currently creating custom tools to automate reconnaissance and vulnerability detection.
+  </div>
+</section>
+
+<section>
+  <h2>Technical Arsenal</h2>
+  <div class="grid">
+    <div class="card">
+        <h3>⚔️ Offensive Tools</h3>
+        <p>Burp Suite, Metasploit, Nmap, Wireshark, John the Ripper, Hydra, Gobuster, Nikto, OWASP ZAP.</p>
+    </div>
+    <div class="card">
+        <h3>🛡️ Key Concepts</h3>
+        <p>Vulnerability Assessment, Web App Penetration Testing, Network Scanning, OSINT, Social Engineering.</p>
+    </div>
+    <div class="card">
+        <h3>💻 Programming</h3>
+        <p><strong>Python</strong> (Security Automation), Java, C, C++.</p>
+    </div>
+    <div class="card">
+        <h3>🖥️ Operating Systems</h3>
+        <p>Kali Linux, Parrot OS, Ubuntu, Windows.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    <div class="card">
+        <h3>ReconX Framework</h3>
+        <p>Developed a <strong>Python-based automation tool</strong> for passive & active reconnaissance. Integrates Subfinder, Amass, and WHOIS to generate structured reports on live hosts.</p>
+    </div>
+    <div class="card">
+        <h3>Nmap Vulnerability Tool</h3>
+        <p>Built a custom detection tool utilizing <strong>Nmap NSE scripts</strong> to automate service enumeration and vulnerability reporting.</p>
+    </div>
+    <div class="card">
+        <h3>Web App Pentesting</h3>
+        <p>Conducted black-box testing on a demo e-commerce site. Successfully identified and exploited <strong>SQLi and XSS</strong> vulnerabilities using Burp Suite.</p>
+    </div>
+    <div class="card">
+        <h3>Vuln Scanning Lab</h3>
+        <p>Performed end-to-end scanning using OpenVAS and Nmap, followed by exploitation of discovered flaws using <strong>Metasploit</strong> in a controlled lab.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Education & Certifications</h2>
+  <div class="grid">
+    <div class="card">
+        <h3>Certified Ethical Hacker</h3>
+        <p>EC-Council Certification</p>
+    </div>
+    <div class="card">
+        <h3>CEH Master</h3>
+        <p>EC-Council (In Progress)</p>
+    </div>
+    <div class="card">
+        <h3>B.Sc Computer Science</h3>
+        <p>Willingdon College, Sangli<br><strong>CGPA: 9.46</strong> (2022-2025)</p>
+    </div>
+    <div class="card">
+        <h3>Java Fundamentals</h3>
+        <p>Mastering Fundamentals - Scaler</p>
+    </div>
+    <div class="card">
+        <h3>Ethical Hacking</h3>
+        <p>Great Learning Certification</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Mallangouda Biradar | Offensive Security Portfolio</p>
+</footer>
+
+<script>
+const text = [
+  'Cybersecurity Analyst',
+  'Penetration Tester',
+  'Python Security Tool Developer',
+  'Ethical Hacker'
+];
+
+let i = 0; // Current word index
+let j = 0; // Current character index
+let isDeleting = false;
+let isEnd = false;
+const typing = document.getElementById('typing');
+
+function typeEffect() {
+  isEnd = false;
+  let current = text[i];
+
+  if (isDeleting) {
+    // Delete logic
+    typing.textContent = current.substring(0, j);
+    j--;
+    if (j < 0) {
+      isDeleting = false;
+      i++;
+      if (i === text.length) i = 0; // Loop back to start
+    }
+  } else {
+    // Typing logic
+    typing.textContent = current.substring(0, j+1);
+    j++;
+    if (j === current.length) {
+      isEnd = true;
+      isDeleting = true;
+    }
+  }
+
+  const speed = isEnd ? 2000 : (isDeleting ? 50 : 100);
+  
+  setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
